@@ -35,11 +35,11 @@ r3con1z3r depends only on the os and the requests python modules.
 
 # Usage
 
-python r3con1z3r.py [domain.com]
+python3 r3con1z3r.py [domain.com]
 
 # Examples
 
-- To run on all Operating Systems (linux, windows,mac os, android e.t.c)
+- To run on all Operating Systems (Linux, Windows, Mac OS X, Android e.t.c)  i.e Python 2 environment
 
 `python r3con1z3r.py google.com`
 
