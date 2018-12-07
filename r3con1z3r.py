@@ -1,12 +1,16 @@
 #!/usr/bin/env python
-# coding: utf-8
-# Author: Raji Abdulgafar
-# GAPHY
-# Twitter: @mrgaphy
-# R3CON1Z3R v1.0
 import sys
 import requests
 
+def script_info(): 
+    """
+    coding: utf-8
+    Author: Raji Abdulgafar [GAPHY]
+    Twitter: @mrgaphy
+    Title: R3CON1Z3R v1.0
+    
+    """
+    return None
 
 # OS Compatibility : Coloring
 if sys.platform.startswith('win'):
@@ -30,7 +34,7 @@ def header():
 | | \ \   ___) | | |____  | |_| | | |\  |  | |  / /__   ___) | | | \ \ 
 |_|  \_\ |____/   \_____|  \___/  |_| \_|  |_| /_____| |____/  |_|  \_\  
                                                             
-         %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s       #GAPHY %s
+         %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s #GAPHY %s
         '''%(R, B, R, C, W))
     
 if len(sys.argv) < 2 or len(sys.argv) > 2:
@@ -108,7 +112,7 @@ def generateHTML():
 	<pre>{}</pre>
 	<strong>Page Links</strong>
 	<pre>{}</pre><hr>
-	<center> All Right Reserved &copy; <strong>R3CON1Z3R</strong></center>
+	<center> All Rights Reserved &copy; <strong>R3CON1Z3R</strong></center>
  
 </body>
 </html>
