@@ -59,8 +59,15 @@ r3con1z3r is licensed under the GNU GPL license. take a look at the [LICENSE](/L
 
 This project is open to contributions, Bug reports and pull requests are welcome on GitHub at https://github.com/abdulgaphy/r3con1z3r.
 
-
-
 # Changelog
 
 1.0 - Release
+
+
+# Author Information on Terminal
+
+- cd Root folder
+- import r3con1z3r 
+- print script_info.__doc__
+
+or help(script_info)
