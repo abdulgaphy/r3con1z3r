@@ -33,7 +33,7 @@ def header():
          %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s       #GAPHY %s
         '''%(R, B, R, C, W))
     
-if len(sys.argv) < 2:
+if len(sys.argv) < 2 or len(sys.argv) > 2:
     header()
     print('{}Usage: python3 r3con1z3r.py [domain.com]\n'.format(Y, C))
     print('{}Example: python3 r3con1z3r.py google.com\n'.format(Y, C))
