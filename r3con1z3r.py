@@ -28,12 +28,20 @@ def header():
 | |__) |   __) | | |      | | | | |  \| |  | |    / /    __) | | |__) |
 |  _  /   |__ <  | |      | | | | | . ` |  | |   / /    |__ <  |  _  / 
 | | \ \   ___) | | |____  | |_| | | |\  |  | |  / /__   ___) | | | \ \ 
-|_|  \_\ |____/   \_____|  \___/  |_| \_|  |_| /_____| |____/  |_|  \_\
+|_|  \_\ |____/   \_____|  \___/  |_| \_|  |_| /_____| |____/  |_|  \_\  
                                                             
-         %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s          #GAPHY %s 
+         %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s       #GAPHY %s
         '''%(R, B, R, C, W))
+    
+if len(sys.argv) < 2:
+    header()
+    print('{}Usage: python3 r3con1z3r.py [domain.com]\n'.format(Y, C))
+    print('{}Example: python3 r3con1z3r.py google.com\n'.format(Y, C))
+    print('{}[!] Please specify a domain'.format(Y, C))
+    sys.exit()
+else:
+    url = str(sys.argv[1])
 
-url = str(sys.argv[1])
 # Api : functionalities
 def httpHeader():
 	baseApi = "http://api.hackertarget.com/httpheaders/?q=" + url
