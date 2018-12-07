@@ -27,7 +27,7 @@ $ sudo chmod +x r3con1z3r.py
 
 # Moduldes
 
-r3con1z3r depends only on the os and the requests python modules. 
+r3con1z3r depends only on the sys and the requests python modules. 
 
 **Python 3:** `$ pip3 install -r requirements.txt`
 
