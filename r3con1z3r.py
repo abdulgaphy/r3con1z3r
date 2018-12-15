@@ -108,7 +108,7 @@ def generateHTML():
 	<pre>{}</pre>
 	<strong>Page Links</strong>
 	<pre>{}</pre><hr>
-	<center> All Right Reserved &copy; <strong>R3CON1Z3R</strong></center>
+	<center> All Rights Reserved &copy; <strong>R3CON1Z3R</strong></center>
  
 </body>
 </html>
