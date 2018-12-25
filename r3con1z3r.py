@@ -6,6 +6,7 @@
 # R3CON1Z3R v1.0
 import sys
 import requests
+import os
 
 
 # OS Compatibility : Coloring
@@ -91,23 +92,40 @@ def generateHTML():
   <title>R3C0N1Z3R Report</title>
 </head>
 <body>
+<style>
+    .byna{{
+        color: red;
+        text-transform: uppercase;
+    }}
+</style>
  <center> <h1>R3C0N1Z3R Report - [{}]</h1></center>
- <strong>HTTP header information</strong>
+ 
+        <span class="byna">HTTP header information</span>
 	<pre>{}</pre>
-    <strong>Trace Route</strong>
-    <pre>{}</pre> 
-  <strong>Whois Information</strong>
+	
+        <span class="byna">Trace Route</span>
+        <pre>{}</pre>
+        
+        <span class="byna">Whois Information</span>
 	<pre>{}</pre>
-	<strong>DNS server record</strong>
+	
+        <span class="byna">DNS server record</span>
 	<pre>{}</pre>
-	<strong><Nmap- running services/strong>
+	
+	<span class="byna">Nmap- running services</span>
 	<pre>{}</pre>
-	<strong>Website on the same server</strong>
+	
+	<span class="byna">Website on the same server</span>
 	<pre>{}</pre>
-	<strong>Reverse IP Address</strong>
+	
+	<span class="byna">Reverse IP Address</span>
 	<pre>{}</pre>
-	<strong>Page Links</strong>
-	<pre>{}</pre><hr>
+	
+	<span class="byna">Page Links</span>
+	<pre>{}</pre>
+
+	<hr>
+	
 	<center> All Rights Reserved &copy; <strong>R3CON1Z3R</strong></center>
  
 </body>
@@ -116,12 +134,17 @@ def generateHTML():
 	return create
 # Saving the report
 def saveHTML():
-	saveFile = open(url + '.html', 'w')
-	saveFile.write(generateHTML())
-	saveFile.close()
-	print('{}[+] HTML Report Successfully Generated{}'.format(Y, C))
-	print('{}[+] File saved as {}{}.html{}'.format(Y, R, url, C))
-	print('{}[+] R3CON1Z3R Operation Completed!{}'.format(Y, W))
+    if not os.path.exists(url):
+        os.mkdir(url)
+    else:    
+        print("Directory " , url ,  " already exists, generated html file will be merged with the previous file.")
+        
+    saveFile = open(url+"/"+url + '.html', 'w')
+    saveFile.write(generateHTML())
+    saveFile.close()
+    print('{}[+] HTML Report Successfully Generated{}'.format(Y, C))
+    print('{}[+] File saved as {}{}.html{}'.format(Y, R, url, C))
+    print('{}[+] R3CON1Z3R Operation Completed!{}'.format(Y, W))
 
 def gaphy():
 	header()
