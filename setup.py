@@ -9,7 +9,7 @@ requires = [line.strip('\n') for line in open(REQUIREMENTS).readlines()]
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = "0.0.1"
+VERSION = "1.0.1"
 
 setuptools.setup(
     name="R3con1z3r",
