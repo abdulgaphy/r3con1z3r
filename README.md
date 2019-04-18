@@ -55,8 +55,8 @@ python3 r3con1z3r.py [domain.com]
 
 # ToDo
 
-- [] Include travis setup for automatic testing
-- [] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
+- [ ] Include travis setup for automatic testing
+- [ ] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
 
 # License
 
