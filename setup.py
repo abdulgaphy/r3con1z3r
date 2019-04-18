@@ -23,7 +23,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT",
-    keywords='bluetooth detect wifi multiprotocol',
+    keywords='OSINT web reconnaisance traceroute footprinting DNS',
     classifiers=(
         "Programming Language :: Python",
         "License :: OSI Approved :: MIT License",
