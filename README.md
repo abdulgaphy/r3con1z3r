@@ -17,12 +17,7 @@ r3con1z3r supports **Python 2** and **Python 3**.
 ```
 $ git clone https://github.com/abdulgaphy/r3con1z3r.git
 $ cd r3con1z3r
-$ pip install -r requirements.txt
-```
-or as pypi library
-
-```bash
-    pip install r3con1z3r
+$ python setup.py install
 ```
 
 **Optional for Linux users**
@@ -52,9 +47,9 @@ python3 r3con1z3r.py [domain.com]
 
 `python3 r3con1z3r.py facebook.com`
 
-- To run as executable Unix only
+- To run as executable Unix and Windows
 
-`./r3con1z3r.py google.com`
+`r3con1z3r google.com`
 
 # License
 
