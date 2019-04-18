@@ -53,6 +53,11 @@ python3 r3con1z3r.py [domain.com]
 
 `r3con1z3r google.com`
 
+# ToDo
+
+- [] Include travis setup for automatic testing
+- [] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
+
 # License
 
 r3con1z3r is licensed under the GNU GPL license. take a look at the [LICENSE](/LICENSE) for more information.
