@@ -35,8 +35,8 @@ def header():
     
 if len(sys.argv) < 2 or len(sys.argv) > 2:
     header()
-    print('{}Usage: python3 r3con1z3r.py [domain.com]\n'.format(Y, C))
-    print('{}Example: python3 r3con1z3r.py google.com\n'.format(Y, C))
+    print('{}Usage: r3con1z3r [domain.com]\n'.format(Y, C))
+    print('{}Example: r3con1z3r google.com\n'.format(Y, C))
     print('{}[!] Please specify a domain'.format(Y, C))
     sys.exit()
 else:
@@ -116,12 +116,11 @@ def generateHTML():
 	return create
 # Saving the report
 def saveHTML():
-	saveFile = open(url + '.html', 'w')
-	saveFile.write(generateHTML())
-	saveFile.close()
-	print('{}[+] HTML Report Successfully Generated{}'.format(Y, C))
-	print('{}[+] File saved as {}{}.html{}'.format(Y, R, url, C))
-	print('{}[+] R3CON1Z3R Operation Completed!{}'.format(Y, W))
+    with open(url + '.html', 'w') as saveFile:
+        saveFile.write(generateHTML())
+    print('{}[+] HTML Report Successfully Generated{}'.format(Y, C))
+    print('{}[+] File saved as {}{}.html{}'.format(Y, R, url, C))
+    print('{}[+] R3CON1Z3R Operation Completed!{}'.format(Y, W))
 
 def gaphy():
 	header()
