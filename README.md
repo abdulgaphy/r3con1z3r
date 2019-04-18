@@ -20,10 +20,12 @@ $ cd r3con1z3r
 $ python setup.py install
 ```
 
-**Optional for Linux users**
-```
-$ sudo chmod +x r3con1z3r.py
-```
+
+# Demo
+
+The command line tool automatically gets installed
+![Demo](output.gif)
+
 
 # Modules
 
