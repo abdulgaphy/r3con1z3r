@@ -19,6 +19,11 @@ $ git clone https://github.com/abdulgaphy/r3con1z3r.git
 $ cd r3con1z3r
 $ pip install -r requirements.txt
 ```
+or as pypi library
+
+```bash
+    pip install r3con1z3r
+```
 
 **Optional for Linux users**
 ```

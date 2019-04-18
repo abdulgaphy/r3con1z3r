@@ -7,19 +7,6 @@
 import sys
 import requests
 
-
-# OS Compatibility : Coloring
-if sys.platform.startswith('win'):
-    R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
-    try:
-        import win_unicode_console, colorama
-        win_unicode_console.enable()
-        colorama.init()
-    except:
-        print('[+] Error: Coloring libraries not installed')
-        R, B, Y, C, W = '', '', '', '', ''
-else:
-    R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
 # Banner Printing
 def header():
     print('''%s
@@ -32,15 +19,6 @@ def header():
                                                             
          %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s       #GAPHY %s
         '''%(R, B, R, C, W))
-    
-if len(sys.argv) < 2 or len(sys.argv) > 2:
-    header()
-    print('{}Usage: r3con1z3r [domain.com]\n'.format(Y, C))
-    print('{}Example: r3con1z3r google.com\n'.format(Y, C))
-    print('{}[!] Please specify a domain'.format(Y, C))
-    sys.exit()
-else:
-    url = str(sys.argv[1])
 
 # Api : functionalities
 def httpHeader():
@@ -127,5 +105,28 @@ def gaphy():
 	saveHTML()
 	
 
-if __name__ == '__main__': gaphy()
+if __name__ == '__main__': 
+    # OS Compatibility : Coloring
+    if sys.platform.startswith('win'):
+        R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
+        try:
+            import win_unicode_console, colorama
+            win_unicode_console.enable()
+            colorama.init()
+        except:
+            print('[+] Error: Coloring libraries not installed')
+            R, B, Y, C, W = '', '', '', '', ''
+    else:
+        R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
+    
+    if len(sys.argv) < 2 or len(sys.argv) > 2:
+        header()
+        print('{}Usage: r3con1z3r [domain.com]\n'.format(Y, C))
+        print('{}Example: r3con1z3r google.com\n'.format(Y, C))
+        print('{}[!] Please specify a domain'.format(Y, C))
+        sys.exit()
+    else:
+        url = str(sys.argv[1])
+    
+    gaphy()
 
