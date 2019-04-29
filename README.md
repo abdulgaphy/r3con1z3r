@@ -25,6 +25,21 @@ $ pip install -r requirements.txt
 $ sudo chmod +x r3con1z3r.py
 ```
 
+### Docker Build
+
+ ```
+ $ docker build -t xshuden/r3con1z3r .
+ ```
+
+### Docker Usage
+
+ ```
+ $ docker run -it --name recon xshuden/r3con1z3r
+ $ docker run -it --name recon xshuden/r3con1z3r alibaba.com
+ $ docker cp recon:/tmp/r3con1z3r/alibaba.com.html alibaba.com.html  
+ ```
+
+
 # Modules
 
 r3con1z3r depends only on the sys and the requests python modules. 
