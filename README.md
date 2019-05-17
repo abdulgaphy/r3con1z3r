@@ -14,19 +14,14 @@ Footprinting is the first phase of ethical hacking, its the collection of every 
 
 r3con1z3r supports **Python 2** and **Python 3**.
 
+```bash
+    git clone https://github.com/abdulgaphy/r3con1z3r.git
+    cd r3con1z3r
+    # python2 installation
+    python setup.py install
+    # or python3 installation
+    python3 setup.py install
 ```
-$ git clone https://github.com/abdulgaphy/r3con1z3r.git
-$ cd r3con1z3r
-$ python setup.py install
-```
-NOTE: 
-*nix users, do not install in a virtualenv as it makes use of `sudo`
-
-# Demo
-
-The command line tool automatically gets installed
-![Demo](output.gif)
-
 
 # Modules
 
@@ -42,17 +37,17 @@ python3 r3con1z3r.py [domain.com]
 
 # Examples
 
-- To run on all Operating Systems (Linux, Windows, Mac OS X, Android e.t.c)  i.e Python 2 environment
+- To run on all Operating Systems (Linux, Windows, Mac OS X, Android e.t.c)  i.e Python 2 environment from within the cloned repo:
 
-`python r3con1z3r.py google.com`
+    `python r3con1z3r/main.py google.com`
 
-- To run on python3 environment:
+    python3 environment:
 
-`python3 r3con1z3r.py facebook.com`
+    `python3 r3con1z3r/main.py facebook.com`
 
-- To run as executable Unix and Windows
+- To run as executable Unix and Windows after installing the library:
 
-`r3con1z3r google.com`
+    `r3con1z3r google.com`
 
 # ToDo
 
