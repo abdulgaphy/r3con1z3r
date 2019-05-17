@@ -29,6 +29,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ),
+    # move script depending on platform
     scripts = ['r3con1z3r/scripts/r3con1z3r.bat' if sys.platform.startswith('win') \
                 else 'r3con1z3r/scripts/r3con1z3r',
         ],
@@ -36,5 +37,5 @@ setuptools.setup(
         '': ['*.*'],
     },
     include_package_data=True,
-    zip_safe=False,
+    zip_safe=True,
 )

@@ -3,9 +3,11 @@
 # Author: Raji Abdulgafar
 # GAPHY
 # Twitter: @mrgaphy
-# R3CON1Z3R v1.0
+# R3CON1Z3R v1.0.1
+from __future__ import print_function, absolute_import
 import sys
 import requests
+import spin
 
 # Banner Printing
 def header():
@@ -20,46 +22,62 @@ def header():
          %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s       #GAPHY %s
         '''%(R, B, R, C, W))
 
+
+
+def requestHandler(request_type):
+    """
+    Handles request calls to the API
+    """
+    core = "http://api.hackertarget.com"
+    baseApi = "{0}/{1}/?q=".format(core, request_type) + url
+    try:
+        text = requests.get(baseApi).text
+        return text
+    except:
+        # return an error message before exit script
+        print('\n{}[+] Error generating report for {}{}{}'.format(Y, R, url, C))
+        print('\n{}[!] Please check internet connection').format(Y, C)
+        spinner.terminate()
+        sys.exit()
 # Api : functionalities
 def httpHeader():
-	baseApi = "http://api.hackertarget.com/httpheaders/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="httpheaders")
 	return base
 def reverseHackTarget():
 	baseApi = "http://api.hackertarget.com/reverseiplookup/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="reverseiplookup")
 	return base
 def traceRoute():
 	baseApi = "http://api.hackertarget.com/mtr/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="mtr")
 	return base
 def whoIs():
 	baseApi = "http://api.hackertarget.com/whois/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="whois")
 	return base
 def dns():
 	baseApi = "http://api.hackertarget.com/dnslookup/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="dnslookup")
 	return base
 def reverseDns():
 	baseApi = "http://api.hackertarget.com/reversedns/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="reversedns")
 	return base
 def geoIp():
 	baseApi = "http://api.hackertarget.com/geoip/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="geoip")
 	return base
 def nmap():
 	baseApi = "http://api.hackertarget.com/nmap/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="nmap")
 	return base
 def findSharedServer():
 	baseApi = "http://api.hackertarget.com/findshareddns/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="findshareddns")
 	return base
 def pageLinks():
 	baseApi = "http://api.hackertarget.com/pagelinks/?q=" + url
-	base = requests.get(baseApi).text
+	base = requestHandler(request_type="pagelinks")
 	return base	
 # Generating reports in HTML format
 def generateHTML():
@@ -94,10 +112,13 @@ def generateHTML():
 	return create
 # Saving the report
 def saveHTML():
-    with open(url + '.html', 'w') as saveFile:
+    filename = url + '-r3con1z3.html'
+    spinner.start()
+    with open(filename, 'w') as saveFile:
         saveFile.write(generateHTML())
-    print('{}[+] HTML Report Successfully Generated{}'.format(Y, C))
-    print('{}[+] File saved as {}{}.html{}'.format(Y, R, url, C))
+    spinner.terminate()
+    print('\n{}[+] HTML Report Successfully Generated{}'.format(Y, C))
+    print('{}[+] File saved as {}{}{}'.format(Y, R, filename, C))
     print('{}[+] R3CON1Z3R Operation Completed!{}'.format(Y, W))
 
 def gaphy():
@@ -127,6 +148,7 @@ if __name__ == '__main__':
         sys.exit()
     else:
         url = str(sys.argv[1])
-    
+    # declare global spinner
+    spinner = spin.create_spinner(before="Generating Report")
     gaphy()
 
