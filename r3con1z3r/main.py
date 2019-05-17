@@ -36,7 +36,7 @@ def requestHandler(request_type):
     except:
         # return an error message before exit script
         print('\n{}[+] Error generating report for {}{}{}'.format(Y, R, url, C))
-        print('\n{}[!] Please check internet connection').format(Y, C)
+        print('{}[!] Please check internet connection'.format(Y, C))
         spinner.terminate()
         sys.exit()
 # Api : functionalities
