@@ -5,9 +5,8 @@
 # Twitter: @mrgaphy
 # R3CON1Z3R v1.0.1
 from __future__ import print_function, absolute_import
-import sys
+import sys, os
 import requests
-import spin
 
 # Banner Printing
 def header():
@@ -126,7 +125,10 @@ def gaphy():
 	saveHTML()
 	
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
+    sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+    import spin
+    
     # OS Compatibility : Coloring
     if sys.platform.startswith('win'):
         R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'

@@ -19,7 +19,8 @@ $ git clone https://github.com/abdulgaphy/r3con1z3r.git
 $ cd r3con1z3r
 $ python setup.py install
 ```
-
+NOTE: 
+*nix users, do not install in a virtualenv as it makes use of `sudo`
 
 # Demo
 
