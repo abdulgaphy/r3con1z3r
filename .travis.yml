@@ -1,6 +1,5 @@
 language: python
 python:
-  - "3.7"
   - "3.6"
   - "3.5"
   - "2.7"
@@ -18,7 +17,6 @@ after_success:
   - python setup.py --version
 
 deploy:
-  if: fork = false AND branch = master
   provider: pypi
   user: "gaphy"
   password: $PYPI_PASSWORD
