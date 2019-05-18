@@ -53,7 +53,7 @@ install:
 # Build script (If successfully built - no errors)
 script:
   - python setup.py --version
-
+cache: pip
 deploy:
   provider: pypi
   user: "gaphy"
