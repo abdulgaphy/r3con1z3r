@@ -1,0 +1,30 @@
+language: python
+python:
+  - "3.7"
+  - "3.6"
+  - "3.5"
+  - "2.7"
+  - "2.6"
+
+# Branches to enbale CI.
+branches:
+  only:
+    - master
+
+# Build script (If successfully built - no errors)
+script:
+  - pip install -r requirements.txt
+after_success:
+  - python setup.py --version
+
+deploy:
+  if: fork = false AND branch = master
+  provider: pypi
+  user: "gaphy"
+  password: $PYPI_PASSWORD
+  all_branches: true
+  condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+
+  skip_existing: true
+after_deploy:
+  - pip install r3con1z3r
+  - python -m r3con1z3r.main 
