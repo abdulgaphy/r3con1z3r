@@ -1,4 +1,8 @@
 language: python
+os:
+  - windows
+  - linux
+  - osx
 python:
   - "3.6"
   - "3.5"
@@ -8,7 +12,8 @@ python:
 branches:
   only:
     - master
-
+before_script:
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then pip install win_unicode_console colorama; fi
 # Build script (If successfully built - no errors)
 script:
   - pip install -r requirements.txt
