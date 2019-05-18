@@ -19,7 +19,7 @@ fi
 
 if [[ "$TRAVIS_OS_NAME" = "windows" ]]; then 
     if [[ "$TRAVIS_PYTHON_VERSION" == "27" ]]; then
-        choco install python --version 2.7
+        choco install python2
         export PATH="/c/Python27:/c/Python27/Scripts:$PATH"
     elif [[ "$TRAVIS_PYTHON_VERSION" == "35" ]]; then
             choco install python --version 3.5.2
