@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# get current python version
+PYTHON_VERSION="$(which python)"
+#call cli with arguments
+clear
+python -m r3con1z3r.main "$@"
+if [ $? -eq 0 ]; then
+    :
+else
+    clear
+    python3 -m r3con1zr.main "$@"
+fi
