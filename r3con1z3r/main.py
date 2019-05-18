@@ -43,39 +43,30 @@ def httpHeader():
 	base = requestHandler(request_type="httpheaders")
 	return base
 def reverseHackTarget():
-	baseApi = "http://api.hackertarget.com/reverseiplookup/?q=" + url
 	base = requestHandler(request_type="reverseiplookup")
 	return base
 def traceRoute():
-	baseApi = "http://api.hackertarget.com/mtr/?q=" + url
 	base = requestHandler(request_type="mtr")
 	return base
 def whoIs():
-	baseApi = "http://api.hackertarget.com/whois/?q=" + url
 	base = requestHandler(request_type="whois")
 	return base
 def dns():
-	baseApi = "http://api.hackertarget.com/dnslookup/?q=" + url
 	base = requestHandler(request_type="dnslookup")
 	return base
 def reverseDns():
-	baseApi = "http://api.hackertarget.com/reversedns/?q=" + url
 	base = requestHandler(request_type="reversedns")
 	return base
 def geoIp():
-	baseApi = "http://api.hackertarget.com/geoip/?q=" + url
 	base = requestHandler(request_type="geoip")
 	return base
 def nmap():
-	baseApi = "http://api.hackertarget.com/nmap/?q=" + url
 	base = requestHandler(request_type="nmap")
 	return base
 def findSharedServer():
-	baseApi = "http://api.hackertarget.com/findshareddns/?q=" + url
 	base = requestHandler(request_type="findshareddns")
 	return base
 def pageLinks():
-	baseApi = "http://api.hackertarget.com/pagelinks/?q=" + url
 	base = requestHandler(request_type="pagelinks")
 	return base	
 # Generating reports in HTML format
@@ -111,7 +102,7 @@ def generateHTML():
 	return create
 # Saving the report
 def saveHTML():
-    filename = url + '-r3con1z3.html'
+    filename = url + '-r3con1z3r.html'
     spinner.start()
     with open(filename, 'w') as saveFile:
         saveFile.write(generateHTML())
@@ -130,8 +121,8 @@ if __name__ == '__main__':
     import spin
     
     # OS Compatibility : Coloring
+    R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
     if sys.platform.startswith('win'):
-        R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
         try:
             import win_unicode_console, colorama
             win_unicode_console.enable()
@@ -139,8 +130,6 @@ if __name__ == '__main__':
         except:
             print('[+] Error: Coloring libraries not installed')
             R, B, Y, C, W = '', '', '', '', ''
-    else:
-        R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
     
     if len(sys.argv) < 2 or len(sys.argv) > 2:
         header()

@@ -14,8 +14,8 @@ VERSION = "1.0.1"
 setuptools.setup(
     name="R3con1z3r",
     version=VERSION,
-    author='AbdulGaphy',
-    author_email="",
+    author='Raji Abdulgafar',
+    author_email="topeabdulgafar@gmail.com",
     description="R3con1z3r is a lightweight Web information gathering tool with an intuitive features written in python. it provides a powerful environment in which open source intelligence (OSINT) web-based footprinting can be conducted quickly and thoroughly.",
     url="https://github.com/abdulgaphy/r3con1z3r",
     packages=setuptools.find_packages(),
