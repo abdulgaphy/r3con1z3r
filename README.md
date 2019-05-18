@@ -1,5 +1,7 @@
 # R3CON1Z3R
 
+[![Build Status](https://travis-ci.com/abdulgaphy/r3con1z3r.svg?branch=master)](https://travis-ci.com/abdulgaphy/r3con1z3r)
+
 R3con1z3r is a lightweight Web information gathering tool with an intuitive features written in python. it provides a powerful environment in which open source intelligence (OSINT) web-based footprinting can be conducted quickly and thoroughly. 
 
 Footprinting is the first phase of ethical hacking, its the collection of every possible information regarding the target. R3con1z3r is a passive reconnaissance tool with  built-in functionalities which includes: HTTP header flag, Traceroute, Whois Footprinting, DNS information, Site on same server, Nmap port scanner, Reverse Target and hyperlinks on a webpage. The tool, after being provided with necessary inputs generates an output in HTML format.
