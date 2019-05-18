@@ -1,9 +1,12 @@
 language: python
+os:
+  - windows
+  - linux
+  - osx
 python:
   - "3.6"
   - "3.5"
   - "2.7"
-  - "2.6"
 
 # Branches to enbale CI.
 branches:
