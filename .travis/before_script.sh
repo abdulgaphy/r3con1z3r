@@ -4,10 +4,7 @@ set -v
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
     if [[ "$TRAVIS_PYTHON_VERSION" == "27" ]]; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
-        echo 'export PATH="/usr/local/bin:/usr/local/sbin:$PATH"' >> ~/.profile;
-        brew install python@2
-        ln -s pip="python2.7 -m pip"
+        ln -s pip=pip2;
     elif [[ "$TRAVIS_PYTHON_VERSION" == "35" ]]; then
         brew install sashkab/python/python35;
         echo 'export PATH="/usr/local/opt/python35/bin:$PATH"' >> ~/.bash_profile;
