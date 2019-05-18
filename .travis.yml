@@ -1,23 +1,57 @@
-language: python
-os:
-  - windows
-  - linux
-  - osx
-python:
-  - "3.6"
-  - "3.5"
-  - "2.7"
+matrix:
+    include:
+        # Use the built in venv for linux builds
+        - os: linux
+          sudo: required
+          python: "2.7"
+          dist: trusty
+
+        - os: linux
+          sudo: required
+          python: "3.5"
+          dist: trusty
+
+        - os: linux
+          sudo: required
+          python: "3.6"
+          dist: trusty
+
+        # Use sh for osx and windows
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=27
+
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=35
+
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=36
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=27
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=35
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=36
 
 # Branches to enbale CI.
 branches:
   only:
     - master
-before_script:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then pip install win_unicode_console colorama; fi
+
+before_install:
+  - .travis/before_script.sh
+install:
+  - pip install -r requirements.txt
 # Build script (If successfully built - no errors)
 script:
-  - pip install -r requirements.txt
-after_success:
   - python setup.py --version
 
 deploy:
