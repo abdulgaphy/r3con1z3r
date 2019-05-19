@@ -6,17 +6,14 @@ matrix:
         - os: linux
           sudo: required
           python: "2.7"
-          dist: trusty
 
         - os: linux
           sudo: required
           python: "3.5"
-          dist: trusty
 
         - os: linux
           sudo: required
           python: "3.6"
-          dist: trusty
 
         # Use sh for osx and windows
         - os: osx
