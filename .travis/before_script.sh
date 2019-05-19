@@ -19,9 +19,9 @@ if [[ "$TRAVIS_OS_NAME" = "windows" ]]; then
     if [[ "$TRAVIS_PYTHON_VERSION" == "27" ]]; then
         choco install python2
     elif [[ "$TRAVIS_PYTHON_VERSION" == "35" ]]; then
-            choco install python3 --version 3.5.2;
+        choco install python3 --version 3.5.2;
     elif [[ "$TRAVIS_PYTHON_VERSION" == "36" ]]; then
-            choco install python --version 3.6.5;
+        choco install python --version 3.6.5;
     fi
     python -m pip install --upgrade pip wheel
     # install unicode and colorama
