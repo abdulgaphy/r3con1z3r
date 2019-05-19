@@ -26,6 +26,4 @@ if [[ "$TRAVIS_OS_NAME" = "windows" ]]; then
     python -m pip install --upgrade pip wheel
     # install unicode and colorama
     pip install win_unicode_console colorama;
-    # refresh path
-    refreshenv
 fi
