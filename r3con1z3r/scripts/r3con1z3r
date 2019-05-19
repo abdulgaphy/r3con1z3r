@@ -9,5 +9,5 @@ if [ $? -eq 0 ]; then
     :
 else
     clear
-    python3 -m r3con1zr.main "$@"
+    python3 -m r3con1z3r.main "$@"
 fi
