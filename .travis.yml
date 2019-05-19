@@ -1,25 +1,61 @@
-language: python
-os:
-  - windows
-  - linux
-  - osx
-python:
-  - "3.6"
-  - "3.5"
-  - "2.7"
+matrix:
+    include:
+        # Use the built in venv for linux builds
+        - os: linux
+          sudo: required
+          python: "2.7"
+          dist: trusty
+
+        - os: linux
+          sudo: required
+          python: "3.5"
+          dist: trusty
+
+        - os: linux
+          sudo: required
+          python: "3.6"
+          dist: trusty
+
+        # Use sh for osx and windows
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=27
+
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=35
+
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=36
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=27 PATH="/c/Python27:/c/Python27/Scripts:$PATH"
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=35 PATH="/c/Python35:/c/Python35/Scripts:$PATH"
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=36 PATH="/c/Python36:/c/Python36/Scripts:$PATH"
 
 # Branches to enbale CI.
 branches:
   only:
     - master
-before_script:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then pip install win_unicode_console colorama; fi
+
+before_install:
+  - .travis/before_script.sh
+install:
+  - pip install -r requirements.txt || python -m pip install -r requirements.txt
 # Build script (If successfully built - no errors)
 script:
-  - pip install -r requirements.txt
-after_success:
   - python setup.py --version
-
+  - python r3con1z3r/main.py facebook.com
+  - cat facebook.com-r3con1z3r.html
+cache: pip
 deploy:
   provider: pypi
   user: "gaphy"
