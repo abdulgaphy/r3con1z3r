@@ -63,7 +63,7 @@ deploy:
   skip_existing: true
   on:
     branch: master
-condition: fork = false
+    condition: fork = false
 after_deploy:
   - pip install r3con1z3r
   - python -m r3con1z3r.main 
