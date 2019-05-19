@@ -24,13 +24,11 @@ if [[ "$TRAVIS_OS_NAME" = "windows" ]]; then
             export PATH="/c/Python35:/c/Python35/Scripts:$PATH";
     elif [[ "$TRAVIS_PYTHON_VERSION" == "36" ]]; then
             choco install python --version 3.6.5;
-                
+            export PATH="/c/Python36:/c/Python36/Scripts:$PATH";
     fi
     python -m pip install --upgrade pip wheel
     # install unicode and colorama
     pip install win_unicode_console colorama;
     # refresh path
-    export PATH="$(powershell -Command '("Process", "Machine" | % {
-  [Environment]::GetEnvironmentVariable("PATH", $_) -Split ";" -Replace "\\$", ""
-} | Select -Unique | % { cygpath $_ }) -Join ":"')"
+    refreshenv
 fi
