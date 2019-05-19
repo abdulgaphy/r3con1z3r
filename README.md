@@ -36,20 +36,28 @@ r3con1z3r [domain.com]
 
 - To run on all Operating Systems 
 
-    `r3con1z3r google.com`
-    `r3con1z3r facebook.com`
+    ```bash
+    r3con1z3r google.com
+    ```
+
+    ```bash
+    r3con1z3r facebook.com
+    ```
 
 # ToDo
 
-- [x] Include travis setup for automatic testing
+- [x] Include travis setup
 - [x] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
+- [x] Test across Python2.7, 3.5 and 3.6
+- [x] Test across osx, linux and windows
+- [ ] Adjust windows tests to pass
 
 # License
 
 r3con1z3r is licensed under the GNU GPL license. take a look at the [LICENSE](/LICENSE) for more information.
 
 # Contribution
-
+fast_finish: true
 This project is open to contributions, Bug reports and pull requests are welcome on GitHub at https://github.com/abdulgaphy/r3con1z3r.
 
 

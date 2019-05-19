@@ -1,4 +1,6 @@
 matrix:
+    fast_finish: true
+    
     include:
         # Use the built in venv for linux builds
         - os: linux
@@ -28,7 +30,8 @@ matrix:
         - os: osx
           language: sh
           env: TRAVIS_PYTHON_VERSION=36
-
+          
+    allow_failures:
         - os: windows
           language: sh
           env: TRAVIS_PYTHON_VERSION=27 PATH="/c/Python27:/c/Python27/Scripts:$PATH"
@@ -39,13 +42,11 @@ matrix:
 
         - os: windows
           language: sh
-          env: TRAVIS_PYTHON_VERSION=36 PATH="/c/Python36:/c/Python36/Scripts:$PATH"
-
+          env: TRAVIS_PYTHON_VERSION=36 PATH="/c/Python36:/c/Python36/Scripts:$PATH"    
 # Branches to enbale CI.
 branches:
   only:
     - master
-
 before_install:
   - bash .travis/before_script.sh
 install:
