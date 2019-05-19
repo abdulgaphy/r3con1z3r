@@ -61,10 +61,10 @@ deploy:
   provider: pypi
   user: "gaphy"
   password: $PYPI_PASSWORD
+  condition: fork = false
   skip_existing: true
   on:
     branch: master
-    condition: fork = false
 after_deploy:
   - pip install r3con1z3r
   - python -m r3con1z3r.main 
