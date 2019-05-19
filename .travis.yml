@@ -47,7 +47,7 @@ branches:
     - master
 
 before_install:
-  - .travis/before_script.sh
+  - bash .travis/before_script.sh
 install:
   - pip install -r requirements.txt || python -m pip install -r requirements.txt
 # Build script (If successfully built - no errors)
