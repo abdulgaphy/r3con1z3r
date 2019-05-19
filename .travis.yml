@@ -54,8 +54,9 @@ install:
 # Build script (If successfully built - no errors)
 script:
   - python setup.py --version
-  - python r3con1z3r/main.py facebook.com
-  - cat facebook.com-r3con1z3r.html
+  - python r3con1z3r/main.py google.com
+  - cat google.com-r3con1z3r.html
+  - rm google.com-r3con1z3r.html
 cache: pip
 deploy:
   provider: pypi
