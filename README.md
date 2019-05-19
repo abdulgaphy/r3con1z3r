@@ -41,8 +41,11 @@ r3con1z3r [domain.com]
 
 # ToDo
 
-- [x] Include travis setup for automatic testing
+- [x] Include travis setup
 - [x] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
+- [x] Test across Python2.7, 3.5 and 3.6
+- [x] Test across osx, linux and windows
+- [ ] Adjust windows tests to pass
 
 # License
 
