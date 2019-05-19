@@ -53,8 +53,7 @@ install:
 # Build script (If successfully built - no errors)
 script:
   - python setup.py --version
-  - python setup.py install --user || python setup.py install
-  - r3con1z3r facebook.com
+  - python r3con1z3r/main.py facebook.com
   - cat facebook.com-r3con1z3r.html
 cache: pip
 deploy:
