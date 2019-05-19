@@ -31,15 +31,15 @@ matrix:
 
         - os: windows
           language: sh
-          env: TRAVIS_PYTHON_VERSION=27
+          env: TRAVIS_PYTHON_VERSION=27 PATH="/c/Python27:/c/Python27/Scripts:$PATH"
 
         - os: windows
           language: sh
-          env: TRAVIS_PYTHON_VERSION=35
+          env: TRAVIS_PYTHON_VERSION=35 PATH="/c/Python35:/c/Python35/Scripts:$PATH"
 
         - os: windows
           language: sh
-          env: TRAVIS_PYTHON_VERSION=36
+          env: TRAVIS_PYTHON_VERSION=36 PATH="/c/Python36:/c/Python36/Scripts:$PATH"
 
 # Branches to enbale CI.
 branches:
