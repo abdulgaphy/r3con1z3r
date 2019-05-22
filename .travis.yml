@@ -53,7 +53,7 @@ deploy:
   provider: pypi
   user: "gaphy"
   password: $PYPI_PASSWORD
-  condition: fork = false
+  condition: fork = false AND os = linux
   skip_existing: true
   on:
     branch: master
