@@ -58,5 +58,5 @@ deploy:
   on:
     branch: master
 after_deploy:
-  - pip install r3con1z3r
+  - python -m pip install r3con1z3r || pip install r3con1z3r
   - python -m r3con1z3r.main 
