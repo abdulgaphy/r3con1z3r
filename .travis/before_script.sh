@@ -4,11 +4,10 @@ set -v
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then 
     if [[ "$TRAVIS_PYTHON_VERSION" == "27" ]]; then
-        ln -s pip=pip2;
+        :
     elif [[ "$TRAVIS_PYTHON_VERSION" == "35" ]]; then
         brew install sashkab/python/python35;
         echo 'export PATH="/usr/local/opt/python35/bin:$PATH"' >> ~/.bash_profile;
-        ln -s pip=pip3.5;
     elif [[ "$TRAVIS_PYTHON_VERSION" == "36" ]]; then
         :
     fi
