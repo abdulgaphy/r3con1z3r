@@ -128,7 +128,7 @@ def main():
     global R, B, C, W, Y, url, spinner
     sys.path.append(os.path.dirname(os.path.realpath(__file__)))
     import spin
-    
+    print(sys.argv)
     # OS Compatibility : Coloring
     R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
     if sys.platform.startswith('win'):
@@ -152,3 +152,5 @@ def main():
     spinner = spin.create_spinner(before="Generating Report")
     gaphy()
 
+if __name__ =="__main__":
+    main()
