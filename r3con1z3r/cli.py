@@ -8,6 +8,8 @@ from __future__ import print_function, absolute_import
 import sys, os
 import requests
 
+global R, B, C, W, Y, url, spinner
+
 # Banner Printing
 def header():
     print('''%s
@@ -27,6 +29,8 @@ def requestHandler(request_type):
     """
     Handles request calls to the API
     """
+    global R, B, C, W, Y, url, spinner
+
     core = "http://api.hackertarget.com"
     baseApi = "{0}/{1}/?q=".format(core, request_type) + url
     try:
@@ -102,6 +106,7 @@ def generateHTML():
 	return create
 # Saving the report
 def saveHTML():
+    global R, B, C, W, Y, url, spinner
     filename = url + '-r3con1z3r.html'
     spinner.start()
     with open(filename, 'w') as saveFile:
@@ -116,7 +121,11 @@ def gaphy():
 	saveHTML()
 	
 
-if __name__ == '__main__':
+def main():
+    """
+    Run main script
+    """
+    global R, B, C, W, Y, url, spinner
     sys.path.append(os.path.dirname(os.path.realpath(__file__)))
     import spin
     

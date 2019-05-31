@@ -67,4 +67,4 @@ deploy:
     condition: fork = false
 after_deploy:
   - pip install r3con1z3r
-  - python -m r3con1z3r.main 
+  - r3con1z3r
