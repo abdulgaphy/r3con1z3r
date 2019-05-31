@@ -1,6 +1,6 @@
 # R3CON1Z3R
 
-[![Build Status](https://travis-ci.org/abdulgaphy/r3con1z3r.svg?branch=master)](https://travis-ci.org/abdulgaphy/r3con1z3r)
+[![Build Status](https://travis-ci.com/abdulgaphy/r3con1z3r.svg?branch=master)](https://travis-ci.com/abdulgaphy/r3con1z3r)
 
 R3con1z3r is a lightweight Web information gathering tool with an intuitive features written in python. it provides a powerful environment in which open source intelligence (OSINT) web-based footprinting can be conducted quickly and thoroughly. 
 
@@ -65,4 +65,5 @@ This project is open to contributions, Bug reports and pull requests are welcome
 # Changelog
 
 1.0. - Release
-1.0.1 - Release
+1.0.1 - Added as python package 
+1.0.3 _ Bug Fixed

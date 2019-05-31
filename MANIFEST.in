@@ -2,4 +2,4 @@ include *.txt
 include *.png
 include README.md
 recursive-include r3con1z3r *.py
-recursive-include scripts *.bat
+recursive-include r3con1z3r/scripts *.bat

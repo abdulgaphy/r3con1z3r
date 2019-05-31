@@ -1,22 +1,13 @@
+language: python
+python:
+  - "3.6"
+  - "3.5"
+  - "2.7"
+  
 matrix:
     fast_finish: true
     
     include:
-        # Use the built in venv for linux builds
-        - os: linux
-          sudo: required
-          python: "2.7"
-          dist: trusty
-
-        - os: linux
-          sudo: required
-          python: "3.5"
-          dist: trusty
-
-        - os: linux
-          sudo: required
-          python: "3.6"
-          dist: trusty
 
         # Use sh for osx and windows
         - os: osx
@@ -54,17 +45,16 @@ install:
 # Build script (If successfully built - no errors)
 script:
   - python setup.py --version
-  - python r3con1z3r/main.py facebook.com
-  - cat facebook.com-r3con1z3r.html
+  - python r3con1z3r/main.py google.com
+  - cat google.com-r3con1z3r.html
+  - rm google.com-r3con1z3r.html
 cache: pip
 deploy:
   provider: pypi
   user: "gaphy"
   password: $PYPI_PASSWORD
+  condition: fork = false AND os = linux AND branch = "master"
   skip_existing: true
-  on:
-    branch: master
-    condition: fork = false
 after_deploy:
   - pip install r3con1z3r
   - r3con1z3r
