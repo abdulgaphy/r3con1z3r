@@ -1,0 +1,66 @@
+language: python
+python:
+  - "3.6"
+  - "3.5"
+  - "2.7"
+  
+matrix:
+    fast_finish: true
+    
+    include:
+
+        # Use sh for osx and windows
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=27
+
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=35
+
+        - os: osx
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=36
+          
+    allow_failures:
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=27 PATH="/c/Python27:/c/Python27/Scripts:$PATH"
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=35 PATH="/c/Python35:/c/Python35/Scripts:$PATH"
+
+        - os: windows
+          language: sh
+          env: TRAVIS_PYTHON_VERSION=36 PATH="/c/Python36:/c/Python36/Scripts:$PATH"    
+# Branches to enbale CI.
+branches:
+  only:
+    - master
+before_install:
+  - bash .travis/before_script.sh
+install:
+  - pip install -r requirements.txt || python -m pip install -r requirements.txt
+# Build script (If successfully built - no errors)
+script:
+  - python setup.py --version
+  - python r3con1z3r/cli.py google.com
+  - cat google.com-r3con1z3r.html
+  - rm google.com-r3con1z3r.html
+  - python setup.py install
+  - r3con1z3r google.com
+  - pip uninstall r3con1z3r -y
+cache: pip
+deploy:
+  provider: pypi
+  user: "gaphy"
+  password: $PYPI_PASSWORD
+  condition: fork = false AND os = linux 
+  skip_existing: true
+  on:
+    branch: master
+after_deploy:
+  # install from pip package
+  - pip install r3con1z3r
+- r3con1z3r
