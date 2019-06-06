@@ -9,7 +9,7 @@ requires = [line.strip('\n') for line in open(REQUIREMENTS).readlines()]
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = "1.0.1"
+VERSION = "1.0.4"
 
 setuptools.setup(
     name="R3con1z3r",
@@ -30,9 +30,11 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ),
     # move script depending on platform
-    scripts = ['r3con1z3r/scripts/r3con1z3r.bat' if sys.platform.startswith('win') \
-                else 'r3con1z3r/scripts/r3con1z3r',
-        ],
+    entry_points={
+                  'console_scripts': [
+                      'r3con1z3r = r3con1z3r.cli:main'
+                  ]
+              },
     package_data={
         '': ['*.*'],
     },

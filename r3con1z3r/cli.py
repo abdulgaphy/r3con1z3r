@@ -8,6 +8,8 @@ from __future__ import print_function, absolute_import
 import sys, os
 import requests
 
+global R, B, C, W, Y, url, spinner
+
 # Banner Printing
 def header():
     print('''%s
@@ -27,6 +29,8 @@ def requestHandler(request_type):
     """
     Handles request calls to the API
     """
+    global R, B, C, W, Y, url, spinner
+
     core = "http://api.hackertarget.com"
     baseApi = "{0}/{1}/?q=".format(core, request_type) + url
     try:
@@ -102,7 +106,8 @@ def generateHTML():
 	return create
 # Saving the report
 def saveHTML():
-    filename = url + '-r3con1z3.html'
+    global R, B, C, W, Y, url, spinner
+    filename = url + '-r3con1z3r.html'
     spinner.start()
     with open(filename, 'w') as saveFile:
         saveFile.write(generateHTML())
@@ -116,13 +121,17 @@ def gaphy():
 	saveHTML()
 	
 
-if __name__ == '__main__':
+def main():
+    """
+    Run main script
+    """
+    global R, B, C, W, Y, url, spinner
     sys.path.append(os.path.dirname(os.path.realpath(__file__)))
     import spin
     
     # OS Compatibility : Coloring
+    R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
     if sys.platform.startswith('win'):
-        R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
         try:
             import win_unicode_console, colorama
             win_unicode_console.enable()
@@ -130,8 +139,6 @@ if __name__ == '__main__':
         except:
             print('[+] Error: Coloring libraries not installed')
             R, B, Y, C, W = '', '', '', '', ''
-    else:
-        R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
     
     if len(sys.argv) < 2 or len(sys.argv) > 2:
         header()
