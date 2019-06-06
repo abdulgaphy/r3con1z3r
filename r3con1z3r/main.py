@@ -43,39 +43,30 @@ def httpHeader():
 	base = requestHandler(request_type="httpheaders")
 	return base
 def reverseHackTarget():
-	baseApi = "http://api.hackertarget.com/reverseiplookup/?q=" + url
 	base = requestHandler(request_type="reverseiplookup")
 	return base
 def traceRoute():
-	baseApi = "http://api.hackertarget.com/mtr/?q=" + url
 	base = requestHandler(request_type="mtr")
 	return base
 def whoIs():
-	baseApi = "http://api.hackertarget.com/whois/?q=" + url
 	base = requestHandler(request_type="whois")
 	return base
 def dns():
-	baseApi = "http://api.hackertarget.com/dnslookup/?q=" + url
 	base = requestHandler(request_type="dnslookup")
 	return base
 def reverseDns():
-	baseApi = "http://api.hackertarget.com/reversedns/?q=" + url
 	base = requestHandler(request_type="reversedns")
 	return base
 def geoIp():
-	baseApi = "http://api.hackertarget.com/geoip/?q=" + url
 	base = requestHandler(request_type="geoip")
 	return base
 def nmap():
-	baseApi = "http://api.hackertarget.com/nmap/?q=" + url
 	base = requestHandler(request_type="nmap")
 	return base
 def findSharedServer():
-	baseApi = "http://api.hackertarget.com/findshareddns/?q=" + url
 	base = requestHandler(request_type="findshareddns")
 	return base
 def pageLinks():
-	baseApi = "http://api.hackertarget.com/pagelinks/?q=" + url
 	base = requestHandler(request_type="pagelinks")
 	return base	
 # Generating reports in HTML format
