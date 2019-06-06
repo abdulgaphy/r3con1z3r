@@ -15,12 +15,8 @@ Footprinting is the first phase of ethical hacking, its the collection of every 
 r3con1z3r supports **Python 2** and **Python 3**.
 
 ```bash
-    git clone https://github.com/abdulgaphy/r3con1z3r.git
-    cd r3con1z3r
-    # python2 installation
-    python setup.py install
-    # or python3 installation
-    python3 setup.py install
+   # install from pypi
+   pip install r3con1z3r
 ```
 
 # Modules
@@ -33,26 +29,26 @@ r3con1z3r depends only on the sys and the requests python modules.
 
 # Usage
 
-python3 r3con1z3r.py [domain.com]
+r3con1z3r installs a command line tool on system path that can be interacted with by using
+
+```
+r3con1z3r [domain.com]
+```
 
 # Examples
 
-- To run on all Operating Systems (Linux, Windows, Mac OS X, Android e.t.c)  i.e Python 2 environment from within the cloned repo:
+- To install on all Operating Systems (Linux, Windows, Mac OS X, Android e.t.c)  i.e Python 2 environment from within the cloned repo:
 
-    `python r3con1z3r/main.py google.com`
+    `pip install r3con1z3r`
 
     python3 environment:
 
-    `python3 r3con1z3r/main.py facebook.com`
-
-- To run as executable Unix and Windows after installing the library:
-
-    `r3con1z3r google.com`
+    `pip3 install r3con1z3r`
 
 # ToDo
 
-- [ ] Include travis setup for automatic testing
-- [ ] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
+- [x] Include travis setup for automatic testing
+- [x] Include automatic deployment of incremented versions to pypi so that `pip install r3con1z3r` can work
 
 # License
 
