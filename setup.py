@@ -32,7 +32,7 @@ setuptools.setup(
     # move script depending on platform
     entry_points={
                   'console_scripts': [
-                      'r3con1z3r = r3con1z3r.cli:main'
+                      'r3con1z3r=r3con1z3r.cli:main'
                   ]
               },
     package_data={
