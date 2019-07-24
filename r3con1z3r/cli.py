@@ -3,16 +3,20 @@
 # Author: Raji Abdulgafar
 # GAPHY
 # Twitter: @mrgaphy
-# R3CON1Z3R v1.0.1
+# R3CON1Z3R v1.0.5
 from __future__ import print_function, absolute_import
 import sys, os
-import requests
+import requests, argparse
 
 global R, B, C, W, Y, url, spinner
 
-# Banner Printing
-def header():
-    print('''%s
+
+help_message = """%s
+usage: r3con1z3r [-h] [-v] [-a] [-d DOMAIN]
+"""
+
+header_message = """
+%s
  _____    ____     _____    ___    _   _   __   ______  ____    _____  
 |  __ \  |___ \   / ____|  / _ \  | \ | | /_ | |___  / |___ \  |  __ \ 
 | |__) |   __) | | |      | | | | |  \| |  | |    / /    __) | | |__) |
@@ -21,10 +25,51 @@ def header():
 |_|  \_\ |____/   \_____|  \___/  |_| \_|  |_| /_____| |____/  |_|  \_\  
                                                             
          %sBy https://github.com/abdulgaphy - @mrgaphy%s    >|%s       #GAPHY %s
-        '''%(R, B, R, C, W))
+        """
 
+# Banner Printing
+def header():
+    global header_message
+    print(header_message%(R, B, R, C, W))
 
+def print_help():
+    """
+    Print custom help message
+    """
+    global header_message, help_message, Y
+    return header_message%(R, B, R, C, W) + "\n" + help_message%(Y)
 
+# About r3con1z3r
+def about():
+    print(''' %s
+┌══════════════════════════════════════════════════════════════┐
+█                                                              █
+█                         R3CON1Z3R                            █
+█                                                              █
+█       A passive reconnaissance tool for Web information      █
+█ gathering with an intuitive features, it provides a powerful █
+█    environment in which OSINT web-based can be conducted.    █
+█                                                              █
+█                                                              █
+█                       CONTRIBUTORS                           █
+█                                                              █
+█    1. DIRETNAN DOMNAN        https://github.com/deven96      █
+█    2. SHUAIB OLADIGBOLU      https://github.com/sawzeeyy     █
+█    3. NNAMDI                 https://github.com/nnamdei      █
+█                                                              █
+└══════════════════════════════════════════════════════════════┘     '''%(Y))
+
+# parsing arguments
+def parse_args():        
+    parser = argparse.ArgumentParser(description='Example: r3con1z3r -d domain.com', usage=print_help())
+  
+    parser._optionals.title = "OPTIONS"
+    parser.add_argument('-v', '--version', action='version', version='r3con1z3r 1.0.5')
+    parser.add_argument('-a', '--about', help='About the tools', action="store_true")
+    parser.add_argument('-d', '--domain', help='Specify a domain name you want to gather information about')
+    
+    return parser.parse_args()
+#handling requests
 def requestHandler(request_type):
     """
     Handles request calls to the API
@@ -128,9 +173,12 @@ def main():
     global R, B, C, W, Y, url, spinner
     sys.path.append(os.path.dirname(os.path.realpath(__file__)))
     import spin
+    R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
+    args = vars(parse_args())
+    
     
     # OS Compatibility : Coloring
-    R, B, Y, C, W = '\033[1;31m', '\033[1;37m', '\033[93m', '\033[1;30m', '\033[0m'
+   
     if sys.platform.startswith('win'):
         try:
             import win_unicode_console, colorama
@@ -140,15 +188,27 @@ def main():
             print('[+] Error: Coloring libraries not installed')
             R, B, Y, C, W = '', '', '', '', ''
     
-    if len(sys.argv) < 2 or len(sys.argv) > 2:
+    if len(sys.argv) < 2 :
         header()
-        print('{}Usage: r3con1z3r [domain.com]\n'.format(Y, C))
-        print('{}Example: r3con1z3r google.com\n'.format(Y, C))
+        print('{}Usage: r3con1z3r -d domain.com\n'.format(Y, C))
+        print('{}Example: r3con1z3r -d google.com\n'.format(Y, C))
         print('{}[!] Please specify a domain'.format(Y, C))
         sys.exit()
     else:
-        url = str(sys.argv[1])
-    # declare global spinner
-    spinner = spin.create_spinner(before="Generating Report")
-    gaphy()
+        if args['about']:
+            about()
+        else: 
+            url = args['domain']
+            if  url[0:8] == 'https://':
+                url = url.replace("https://","")
+            elif url[0:7] == 'http://':
+                url = url.replace("http://","")
+            else:
+                url = url
+                
+                # declare global spinner
+                spinner = spin.create_spinner(before="Generating Report")
+                gaphy()
 
+if __name__=="__main__":
+	main()
